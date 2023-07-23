@@ -24,5 +24,11 @@ module.exports = {
         data:model
     })
     return user;
+  },
+  async delete(id){
+    const user=await prisma.user.delete({
+        where:{id}
+    })
+    return user;
   }
 };

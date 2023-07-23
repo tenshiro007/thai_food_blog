@@ -29,3 +29,7 @@ Content-Type: application/json
 {
     "intro":"Hello world"
 }
+
+####
+DELETE  http://localhost:8000/user/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json

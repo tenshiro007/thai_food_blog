@@ -42,7 +42,16 @@ const update=async(req,res)=>{
         res.status(500).send(err)
     }
 }
+const deleteRecord=async(req,res)=>{
+    try{
+        const user=await userRepo.delete(req.params.id)
+        res.send(user)
+    }catch(err){
+        console.log(JSON.stringify(err));
+        res.status(500).send(err)
+    }
+}
 
 module.exports={
-    create,getAll,get,update
+    create,getAll,get,update,deleteRecord
 }
