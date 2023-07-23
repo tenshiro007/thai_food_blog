@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model user {
   id       String  @id @default(uuid())
   email    String  @unique
   name     String
@@ -20,29 +20,49 @@ model User {
   password String
   intro    String
 
-  createdDate  DateTime @default(now())
-  lastModified DateTime @updatedAt
-  posts        Post[]
+  createdDate  DateTime       @default(now())
+  lastModified DateTime       @updatedAt
+  posts        post[]
+  post_comment post_comment[]
 }
 
-model Post {
+model post {
   id        String  @id @default(uuid())
   title     String
   content   String?
   published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
+  author    user    @relation(fields: [authorId], references: [id])
   authorId  String
 
-  parent   Post?   @relation("ParentChild", fields: [parentId], references: [id])
+  parent   post?   @relation("ParentChild", fields: [parentId], references: [id])
   parentId String?
-  children Post[]  @relation("ParentChild")
+  children post[]  @relation("ParentChild")
 
   post_tag      post_tag[]
   post_category post_category[]
+  post_comment  post_comment[]
 
-  createdDate   DateTime @default(now())
+  createdDate   DateTime  @default(now())
   publishedDate DateTime?
-  lastModified  DateTime @updatedAt
+  lastModified  DateTime  @updatedAt
+}
+
+model post_comment {
+  id        String  @id @default(uuid())
+  title     String
+  content   String?
+  parent   post_comment?   @relation("ParentChild", fields: [parentId], references: [id])
+  parentId String?
+  children post_comment[]  @relation("ParentChild")
+
+  author    user    @relation(fields: [authorId], references: [id])
+  authorId  String
+
+  post   post   @relation(fields: [postId], references: [id])
+  postId String
+
+  createdDate  DateTime @default(now())
+  lastModified DateTime @updatedAt
 }
 
 model tag {
@@ -58,7 +78,7 @@ model tag {
 
 model post_tag {
   id     String @id @default(uuid())
-  post   Post   @relation(fields: [postId], references: [id])
+  post   post   @relation(fields: [postId], references: [id])
   postId String
 
   tag   tag    @relation(fields: [tagId], references: [id])
@@ -85,7 +105,7 @@ model category {
 
 model post_category {
   id     String @id @default(uuid())
-  post   Post   @relation(fields: [postId], references: [id])
+  post   post   @relation(fields: [postId], references: [id])
   postId String
 
   category   category @relation(fields: [categoryId], references: [id])
