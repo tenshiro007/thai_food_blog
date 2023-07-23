@@ -5,9 +5,11 @@ const create = async (req, res) => {
   try {
     const { title,content,published,authorId,parentId } = req.body;
     const model = new Post(title,content,published,authorId,parentId);
+    console.log(model);
     const post = await postRepo.create(model);
     res.send(post);
   } catch (err) {
+    console.log(err);
     console.log(JSON.stringify(err));
     res.status(500).send(err);
   }

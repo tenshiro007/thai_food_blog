@@ -41,7 +41,7 @@ model Post {
   post_category post_category[]
 
   createdDate   DateTime @default(now())
-  publishedDate DateTime
+  publishedDate DateTime?
   lastModified  DateTime @updatedAt
 }
 
