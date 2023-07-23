@@ -1,7 +1,7 @@
+#user
+###
 GET http://localhost:8000/user
 Content-Type: application/json
-
-{"email":"ten@gmail.com"}
 
 ####
 GET http://localhost:8000/user/1673221f-7e00-4f09-9666-54a4170909f1
@@ -33,3 +33,30 @@ Content-Type: application/json
 ####
 DELETE  http://localhost:8000/user/1673221f-7e00-4f09-9666-54a4170909f1
 Content-Type: application/json
+
+#----------------------------------------------------
+#category
+###
+GET http://localhost:8000/category
+Content-Type: application/json
+
+####
+GET http://localhost:8000/category/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{"email":"ten@gmail.com"}
+
+####
+POST http://localhost:8000/category
+Content-Type: application/json
+
+{
+    "title":"masda", "content":"" ,"parentId":"1b597981-ffda-423d-9527-0c2a5bf8663b"
+}
+####
+PATCH  http://localhost:8000/category/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{
+    "intro":"Hello world"
+}

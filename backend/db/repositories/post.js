@@ -3,26 +3,26 @@ const prisma = new PrismaClient();
 
 module.exports = {
   async create(model) {
-    return await prisma.user.create({
+    return  await prisma.post.create({
       data: model,
     });
   },
   async getAll() {
-    return  await prisma.user.findMany();
+    return await prisma.post.findMany();
   },
   async get(id) {
-    return  await prisma.user.findUnique({
+    return await prisma.post.findUnique({
       where: { id },
     });
   },
   async update(id,model){
-    return await prisma.user.update({
+    return await prisma.post.update({
         where:{id},
         data:model
     })
   },
   async delete(id){
-    return await prisma.user.delete({
+    return await prisma.post.delete({
         where:{id}
     })
   }
