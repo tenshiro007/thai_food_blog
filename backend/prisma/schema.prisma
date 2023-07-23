@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String   @id @default(uuid())
+  email String  @unique
+  name  String
+  fname  String?
+  lname  String?
+  username String
+  password String
+  intro String
+
+  createdDate  DateTime @default(now())
+  lastModified DateTime @updatedAt
+  posts Post[]
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  String
+
+  parent    Post?    @relation("ParentChild", fields: [parentId], references: [id])
+  parentId  String?
+  children  Post[]   @relation("ParentChild")
+
+  post_tag post_tag[]
+  post_category post_category[]
+
+  createdDate  DateTime @default(now())
+  publishedDate  DateTime 
+  lastModified DateTime @updatedAt
+}
+
+model tag {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+
+  post_tag post_tag[]
+
+  createdDate  DateTime @default(now())
+  lastModified DateTime @updatedAt
+}
+model post_tag {
+  id        String   @id @default(uuid())
+  post    Post    @relation(fields: [postId], references: [id])
+  postId  String
+
+  tag    tag    @relation(fields: [tagId], references: [id])
+  tagId  String
+
+  createdDate  DateTime @default(now())
+  lastModified DateTime @updatedAt
+}
+
+model category {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+
+  parent    category?    @relation("ParentChild", fields: [parentId], references: [id])
+  parentId  String?
+  children  category[]   @relation("ParentChild")
+
+  post_category post_category[]
+
+  createdDate  DateTime @default(now())
+  lastModified DateTime @updatedAt
+}
+
+model post_category {
+  id      String   @id @default(uuid())
+  post    Post    @relation(fields: [postId], references: [id])
+  postId  String
+
+  category    category    @relation(fields: [categoryId], references: [id])
+  categoryId  String
+
+  createdDate  DateTime @default(now())
+  lastModified DateTime @updatedAt
+}
