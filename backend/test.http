@@ -60,3 +60,59 @@ Content-Type: application/json
 {
     "intro":"Hello world"
 }
+
+
+#----------------------------------------------------
+#tag
+###
+GET http://localhost:8000/tag
+Content-Type: application/json
+
+####
+GET http://localhost:8000/tag/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{"email":"ten@gmail.com"}
+
+####
+POST http://localhost:8000/tag
+Content-Type: application/json
+
+{
+    "title":"greeting", "content":"greeting world"
+}
+####
+PATCH  http://localhost:8000/tag/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{
+    "intro":"Hello world"
+}
+
+
+#----------------------------------------------------
+#post
+###
+GET http://localhost:8000/post
+Content-Type: application/json
+
+####
+GET http://localhost:8000/post/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{"email":"ten@gmail.com"}
+
+####
+POST http://localhost:8000/post
+Content-Type: application/json
+
+{
+    "title":"greeting", "content":"greeting world"
+}
+####
+PATCH  http://localhost:8000/post/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{
+    "intro":"Hello world"
+}
