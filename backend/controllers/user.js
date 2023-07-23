@@ -1,9 +1,11 @@
-const User=require('../models/user')
+const userRepo=require('../db/repositories/user')
+const User=require('../db/models/user')
 
 const create=async(req,res)=>{
     try{
         const {name, fname, lname, username, email, password, intro} =req.body;
-        const user=await User.create(name, fname, lname, username, email, password, intro)
+        const userModel=new User(name, fname, lname, username, email, password, intro)
+        const user=await userRepo.create(userModel)
         res.send(user)
     }catch(err){
         console.log(JSON.stringify(err));
@@ -13,7 +15,7 @@ const create=async(req,res)=>{
 
 const getAll=async(req,res)=>{
     try{
-        const user=await User.getAll();
+        const user=await userRepo.getAll();
         res.send(user)
     }catch(err){
         console.log(JSON.stringify(err));
@@ -22,7 +24,7 @@ const getAll=async(req,res)=>{
 }
 const get=async(req,res)=>{
     try{
-        const user=await User.get(req.params.id)
+        const user=await userRepo.get(req.params.id)
         res.send(user)
     }catch(err){
         console.log(JSON.stringify(err));
