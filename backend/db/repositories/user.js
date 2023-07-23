@@ -18,7 +18,11 @@ module.exports = {
     });
     return users;
   },
-  async update(id,name, fname, lname, username, email, password, intro){
-
+  async update(id,model){
+    const user=await prisma.user.update({
+        where:{id},
+        data:model
+    })
+    return user;
   }
 };

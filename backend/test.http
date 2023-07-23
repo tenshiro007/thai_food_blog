@@ -4,7 +4,7 @@ Content-Type: application/json
 {"email":"ten@gmail.com"}
 
 ####
-GET http://localhost:8000/user/1111
+GET http://localhost:8000/user/1673221f-7e00-4f09-9666-54a4170909f1
 Content-Type: application/json
 
 {"email":"ten@gmail.com"}
@@ -20,5 +20,12 @@ Content-Type: application/json
     "username":"shino",
     "email":"shino@gmail.com",
     "password":"1234",
+    "intro":"Hello world"
+}
+####
+PATCH  http://localhost:8000/user/1673221f-7e00-4f09-9666-54a4170909f1
+Content-Type: application/json
+
+{
     "intro":"Hello world"
 }
