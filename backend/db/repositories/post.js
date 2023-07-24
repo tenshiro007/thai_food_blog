@@ -8,11 +8,24 @@ module.exports = {
     });
   },
   async getAll() {
-    return await prisma.post.findMany();
+    return await prisma.post.findMany({
+      include:{
+        children:true,
+        post_tag:true,
+        post_category:true,
+        post_comment:true
+      }
+    });
   },
   async get(id) {
     return await prisma.post.findUnique({
       where: { id },
+      include:{
+        children:true,
+        post_tag:true,
+        post_category:true,
+        post_comment:true
+      }
     });
   },
   async update(id,model){
