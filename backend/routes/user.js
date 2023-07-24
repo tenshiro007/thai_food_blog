@@ -12,7 +12,8 @@ const userController=require('../controllers/user')
 //  */
 router.get('/',userController.getAll);
 router.get('/:id',userController.get);
-router.post('/',userController.create);
+router.post('/register',userController.create);
+router.post('/login',userController.login);
 router.patch('/:id',userController.update);
 // router.delete('/:id',userController.deleteRecord);
 

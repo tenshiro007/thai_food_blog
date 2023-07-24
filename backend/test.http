@@ -10,16 +10,28 @@ Content-Type: application/json
 {"email":"ten@gmail.com"}
 
 ####
-POST http://localhost:8000/user
+POST http://localhost:8000/user/register
 Content-Type: application/json
 
 {
     "name":"shino",
     "fname":"shino",
     "lname":"mon",
-    "username":"shino",
-    "email":"shino@gmail.com",
-    "password":"1234",
+    "username":"vvvv",
+    "email":"vvvv@gmail.com",
+    "password":"hhhhhh",
+    "intro":"Hello world"
+}
+####
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+    "name":"shino",
+    "fname":"shino",
+    "lname":"mon",
+    "email":"vvvv@gmail.com",
+    "password":"hhhhhh",
     "intro":"Hello world"
 }
 ####
