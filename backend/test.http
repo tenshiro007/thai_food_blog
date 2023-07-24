@@ -104,6 +104,8 @@ Content-Type: application/json
 ###
 GET http://localhost:8000/post
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4NGZjMmQ4Ni00ZGE0LTQzYTMtYmRjYi1jMWE5MDhlZGJlNjYiLCJ1c2VybmFtZSI6InZ2dnYiLCJpYXQiOjE2OTAyMDc2NzB9.840Wi4_C7hf7Eir360vwwrhmVKsixka29KNAoIJ9ZCs
+
 
 ####
 GET http://localhost:8000/post/1673221f-7e00-4f09-9666-54a4170909f1

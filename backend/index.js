@@ -10,6 +10,7 @@ const post_comment=require('./routes/post_comment')
 const moregan=require('morgan')
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+const {authMiddleware} = require('./middlewares/auth');
 const app = express();
 
 app.use(express.json());
@@ -33,12 +34,12 @@ const specs = swaggerJsdoc(options);
 app.use('/api', swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use('/user',userRouter)
-app.use('/category',categoryRouter)
-app.use('/tag',tagRouter)
-app.use('/post',postRouter)
-app.use('/post_comment',post_comment)
-app.use('/post_tag',post_tag)
-app.use('/post_category',post_category)
+app.use('/category',authMiddleware,categoryRouter)
+app.use('/tag',authMiddleware,tagRouter)
+app.use('/post',authMiddleware,postRouter)
+app.use('/post_comment',authMiddleware,post_comment)
+app.use('/post_tag',authMiddleware,post_tag)
+app.use('/post_category',authMiddleware,post_category)
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
