@@ -88,6 +88,24 @@ const deleteRecord = async (req, res) => {
     });
   }
 };
+const uploadSingleImage=async(req,res)=>{
+  console.log('uploading...');
+  const file = req.file;
+  console.log(file);
+  if (!file) {
+    return res.status(400).json({ message: 'No file uploaded.' });
+  }
+  return res.status(200).json({ message: 'File uploaded successfully.', filename: file.filename });
+}
+const uploadManyImage=async(req,res)=>{
+  const files = req.files;
+  if (!files || files.length === 0) {
+    return res.status(400).json({ message: 'No files uploaded.' });
+  }
+
+  const filenames = files.map((file) => file.filename);
+  return res.status(200).json({ message: 'Files uploaded successfully.', filenames: filenames });
+}
 
 module.exports = {
   create,
@@ -95,4 +113,6 @@ module.exports = {
   get,
   update,
   deleteRecord,
+  uploadSingleImage,
+  uploadManyImage
 };

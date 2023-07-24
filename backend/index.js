@@ -36,7 +36,7 @@ app.use('/api', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/user',userRouter)
 app.use('/category',authMiddleware,categoryRouter)
 app.use('/tag',authMiddleware,tagRouter)
-app.use('/post',authMiddleware,postRouter)
+app.use('/post',postRouter)
 app.use('/post_comment',authMiddleware,post_comment)
 app.use('/post_tag',authMiddleware,post_tag)
 app.use('/post_category',authMiddleware,post_category)
