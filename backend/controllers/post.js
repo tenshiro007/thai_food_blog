@@ -3,6 +3,15 @@ const Post = require("../db/models/post");
 
 const create = async (req, res) => {
   try {
+    const files = req.files;
+    if (!files || files.length === 0) {
+      console.log({ message: 'No files uploaded.' });
+      // return res.status(400).json({ message: 'No files uploaded.' });
+    }
+
+    const filenames = files.map((file) => file.filename);
+    console.log(filenames);
+
     const { title, content, published, authorId, parentId } = req.body;
     const model = new Post(title, content, published, authorId, parentId);
     console.log(model);
