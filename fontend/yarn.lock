@@ -2044,7 +2044,7 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-autoprefixer@^10.2.4, autoprefixer@^10.4.14:
+autoprefixer@^10, autoprefixer@^10.2.4:
   version "10.4.14"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.14.tgz#e28d49902f8e759dd25b153264e862df2705f79d"
   integrity sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==
@@ -4995,7 +4995,7 @@ postcss@^7.0.36:
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.1.10, postcss@^8.2.6, postcss@^8.3.5, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.27:
+postcss@^8, postcss@^8.1.10, postcss@^8.2.6, postcss@^8.3.5, postcss@^8.4.21, postcss@^8.4.23:
   version "8.4.27"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.27.tgz#234d7e4b72e34ba5a92c29636734349e0d9c3057"
   integrity sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==
@@ -5742,7 +5742,7 @@ table@^6.0.9:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
-tailwindcss@^3.3.3:
+tailwindcss@^3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.3.tgz#90da807393a2859189e48e9e7000e6880a736daf"
   integrity sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==
@@ -5983,6 +5983,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+vue-cli-plugin-tailwind@~3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-cli-plugin-tailwind/-/vue-cli-plugin-tailwind-3.0.0.tgz#2436e781e919acab9539934549999baf33e0a099"
+  integrity sha512-bUWjfwGtJCeBU7pL4lD86RC+HsJAmAlYqr8e65NGC3q/ZBzC9KQs1Iy/vTyfDTnB7ZJm3huB+1a/m+17fdMZ8A==
 
 vue-eslint-parser@^8.0.1:
   version "8.3.0"
