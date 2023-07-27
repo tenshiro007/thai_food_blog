@@ -11,5 +11,16 @@ services:
       - postgres:/var/lib/postgresql/data
     ports:
       - '5432:5432'
+  app-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=dev
+      - DATABASE_URL=postgresql://blog:helloworld@postgres:5432/hibitica_db
+    depends_on:
+      - postgres
 volumes:
   postgres:
