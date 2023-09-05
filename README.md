@@ -7,3 +7,4 @@ $ cd frontend
 $ yarn 
 $ yarn serve
 ```
+![Uploading IMG_88394ED7EEF8-1.jpeg…]()
